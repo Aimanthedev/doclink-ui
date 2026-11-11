@@ -1,3 +1,4 @@
+import CommandCenterEmpty from './components/CommandCenterEmpty'
 import { Wallet, AlertTriangle, HandCoins, ClipboardCheck } from 'lucide-react'
 import { useAuth } from '../../lib/AuthContext'
 import { useAccountsOverview } from '../../hooks/useOverviewData'
@@ -24,7 +25,7 @@ export default function AccountsOverview() {
   const { data, error, isLoading, refetch } = useAccountsOverview()
 
   if (isLoading) return <LoadingState />
-  if (!data) return <ErrorState error={error || new Error("No data available in this design copy")} onRetry={refetch} />
+  if (!data) return <CommandCenterEmpty onRetry={refetch} />
 
   const today = data.today || qatarToday()
   const k = data.kpis

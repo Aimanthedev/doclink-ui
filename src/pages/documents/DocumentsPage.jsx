@@ -166,7 +166,7 @@ export default function DocumentsPage() {
     <div>
       <div className="page-header" style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 28 }}>
         <div>
-          <h1 style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: 30, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 4 }}>Documents</h1>
+          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 30, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 4 }}>Documents</h1>
           <p style={{ fontSize: 13, color: 'var(--text-muted)' }}>Client files, contracts, and case documents stored in R2</p>
         </div>
         {can('can_export_documents') && (
@@ -190,7 +190,7 @@ export default function DocumentsPage() {
             </div>
             <div>
               <div style={{ fontSize: 11, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 4 }}>{s.label}</div>
-              <div style={{ fontSize: 24, fontWeight: 700, color: s.color, fontFamily: 'Inter, system-ui, sans-serif' }}>{s.value}</div>
+              <div style={{ fontSize: 24, fontWeight: 700, color: s.color, fontFamily: 'var(--font-display)' }}>{s.value}</div>
             </div>
           </div>
         ))}

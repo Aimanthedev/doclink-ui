@@ -28,7 +28,7 @@ export default function QuotationTypeSelector({ onClose, onSelect }) {
 
         <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--bg-border)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div>
-            <h2 style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: 22, fontWeight: 600, color: 'var(--text-primary)' }}>New Quotation</h2>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 600, color: 'var(--text-primary)' }}>New Quotation</h2>
             <p style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 2 }}>Choose the type of quotation you want to create</p>
           </div>
           <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)' }}>

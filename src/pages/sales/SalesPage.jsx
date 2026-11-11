@@ -104,7 +104,7 @@ function NewLeadModal({ onClose }) {
     <div className="modal-overlay" onClick={e => e.target === e.currentTarget && onClose()}>
       <div style={{ background: 'var(--bg-secondary)', borderRadius: 16, border: '1px solid var(--bg-border)', width: '100%', maxWidth: 560, maxHeight: '90vh', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
         <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--bg-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <h2 style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: 22, fontWeight: 600, color: 'var(--text-primary)' }}>New Lead</h2>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 600, color: 'var(--text-primary)' }}>New Lead</h2>
           <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)' }}><X size={20} /></button>
         </div>
         <div style={{ flex: 1, overflowY: 'auto', padding: 24, display: 'flex', flexDirection: 'column', gap: 14 }}>
@@ -276,7 +276,7 @@ function LeadDetailModal({ leadId, onClose }) {
       <div style={{ background: 'var(--bg-secondary)', borderRadius: 16, border: '1px solid var(--bg-border)', width: '100%', maxWidth: isEditing ? 560 : 480, maxHeight: '90vh', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
         <div style={{ padding: isEditing ? '20px 24px' : '24px 24px 0', borderBottom: isEditing ? '1px solid var(--bg-border)' : 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: isEditing ? 0 : 16 }}>
           <div>
-            <h3 style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: isEditing ? 22 : 20, fontWeight: 600, color: 'var(--text-primary)' }}>
+            <h3 style={{ fontFamily: 'var(--font-display)', fontSize: isEditing ? 22 : 20, fontWeight: 600, color: 'var(--text-primary)' }}>
               {isEditing ? 'Edit Lead' : (lead.company_name || lead.contact_person)}
             </h3>
             {!isEditing && <div style={{ fontSize: 11, color: 'var(--text-muted)', fontFamily: 'JetBrains Mono, monospace', marginTop: 2 }}>{lead.lead_number}</div>}
@@ -702,7 +702,7 @@ export default function SalesPage() {
       <div className="page-header" style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 28 }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 4 }}>
-            <h1 style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: 28, fontWeight: 700, color: 'var(--text-primary)' }}>Sales</h1>
+            <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 28, fontWeight: 700, color: 'var(--text-primary)' }}>Sales</h1>
             <span style={{ fontSize: 11, fontWeight: 600, padding: '3px 10px', borderRadius: 20, background: 'var(--bg-elevated)', color: 'var(--text-muted)' }}>
               {showingAllStaff ? 'All Staff Sales' : 'My Sales'}
             </span>

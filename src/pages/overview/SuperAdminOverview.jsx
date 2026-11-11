@@ -1,3 +1,4 @@
+import CommandCenterEmpty from './components/CommandCenterEmpty'
 import {
   TrendingUp, HandCoins, Wallet, FolderOpen, Target, Trophy, Landmark, RefreshCw, Users, CheckCircle2, AlertTriangle,
 } from 'lucide-react'
@@ -52,7 +53,7 @@ export default function SuperAdminOverview() {
   const { data, error, isLoading, refetch } = useAdminOverview()
 
   if (isLoading) return <LoadingState />
-  if (!data) return <ErrorState error={error || new Error("No data available in this design copy")} onRetry={refetch} />
+  if (!data) return <CommandCenterEmpty onRetry={refetch} />
 
   const today = data.today || qatarToday()
   const k = data.kpis

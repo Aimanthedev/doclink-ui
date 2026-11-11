@@ -132,7 +132,7 @@ function EventModal({ event, defaultDate, onClose }) {
       <div className="modal-overlay" onClick={e => e.target === e.currentTarget && onClose()}>
         <div style={{ background: 'var(--bg-secondary)', borderRadius: 16, border: '1px solid var(--bg-border)', width: '100%', maxWidth: 440, overflow: 'hidden' }}>
           <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--bg-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12 }}>
-            <h2 style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: 20, fontWeight: 600, color: 'var(--text-primary)' }}>{event.title}</h2>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 600, color: 'var(--text-primary)' }}>{event.title}</h2>
             <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)', flexShrink: 0 }}><X size={20} /></button>
           </div>
 
@@ -177,7 +177,7 @@ function EventModal({ event, defaultDate, onClose }) {
     <div className="modal-overlay" onClick={e => e.target === e.currentTarget && onClose()}>
       <div style={{ background: 'var(--bg-secondary)', borderRadius: 16, border: '1px solid var(--bg-border)', width: '100%', maxWidth: 520, maxHeight: '90vh', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
         <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--bg-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <h2 style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: 22, fontWeight: 600, color: 'var(--text-primary)' }}>{isEdit ? 'Edit Event' : 'New Event'}</h2>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 600, color: 'var(--text-primary)' }}>{isEdit ? 'Edit Event' : 'New Event'}</h2>
           <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)' }}><X size={20} /></button>
         </div>
 
@@ -329,7 +329,7 @@ export default function CalendarPage() {
     <div>
       <div className="page-header" style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 24 }}>
         <div>
-          <h1 style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: 30, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 4 }}>Calendar</h1>
+          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 30, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 4 }}>Calendar</h1>
           <p style={{ fontSize: 13, color: 'var(--text-muted)' }}>Appointments, deadlines, and PRO visits</p>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
@@ -360,7 +360,7 @@ export default function CalendarPage() {
       <div className="card" style={{ padding: '12px 16px', marginBottom: 16, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <button onClick={() => changeMonth(-1)} style={{ background: 'var(--bg-elevated)', border: '1px solid var(--bg-border)', borderRadius: 8, cursor: 'pointer', color: 'var(--text-secondary)', padding: 6, display: 'flex' }}><ChevronLeft size={16} /></button>
-          <div style={{ fontSize: 16, fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'Inter, system-ui, sans-serif', minWidth: 160, textAlign: 'center' }}>{MONTH_NAMES[month]} {year}</div>
+          <div style={{ fontSize: 16, fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'var(--font-display)', minWidth: 160, textAlign: 'center' }}>{MONTH_NAMES[month]} {year}</div>
           <button onClick={() => changeMonth(1)} style={{ background: 'var(--bg-elevated)', border: '1px solid var(--bg-border)', borderRadius: 8, cursor: 'pointer', color: 'var(--text-secondary)', padding: 6, display: 'flex' }}><ChevronRight size={16} /></button>
           <button onClick={() => setCurrentDate(new Date())} className="btn-ghost" style={{ fontSize: 12, padding: '6px 12px' }}>Today</button>
         </div>
@@ -465,7 +465,7 @@ export default function CalendarPage() {
         <div className="modal-overlay" onClick={e => e.target === e.currentTarget && setDayOverflow(null)}>
           <div style={{ background: 'var(--bg-secondary)', borderRadius: 16, border: '1px solid var(--bg-border)', width: '100%', maxWidth: 360, overflow: 'hidden' }}>
             <div style={{ padding: '16px 20px', borderBottom: '1px solid var(--bg-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <h2 style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: 16, fontWeight: 600, color: 'var(--text-primary)' }}>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 16, fontWeight: 600, color: 'var(--text-primary)' }}>
                 {MONTH_NAMES[month]} {dayOverflow.day}, {year}
               </h2>
               <button onClick={() => setDayOverflow(null)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)' }}><X size={18} /></button>

@@ -39,7 +39,7 @@ export default function WhatsNewPopup() {
     <div className="modal-overlay">
       <div style={{ background: 'var(--bg-secondary)', borderRadius: 16, border: '1px solid var(--bg-border)', width: '100%', maxWidth: 440, overflow: 'hidden' }}>
         <div style={{ padding: '18px 22px', borderBottom: '1px solid var(--bg-border)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <h2 style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: 18, fontWeight: 600, color: 'var(--text-primary)' }}>What's new</h2>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 18, fontWeight: 600, color: 'var(--text-primary)' }}>What's new</h2>
           <button onClick={handleDismiss} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)' }}>
             <X size={18} />
           </button>
@@ -65,7 +65,7 @@ export default function WhatsNewPopup() {
               padding: '8px 16px',
               fontSize: 13,
               fontWeight: 600,
-              fontFamily: 'Inter, system-ui, sans-serif',
+              fontFamily: 'var(--font-display)',
               cursor: 'pointer',
             }}
           >

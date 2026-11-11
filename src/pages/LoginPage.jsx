@@ -23,176 +23,117 @@ export default function LoginPage() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex' }}>
-      {/* Left panel — brand side, hidden below 768px */}
-      <div
-        className="hide-mobile"
-        style={{
-          flex: '1 1 50%',
-          position: 'relative',
-          overflow: 'hidden',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          background: 'radial-gradient(135% 90% at 15% 10%, #1a4a6b 0%, #0d2d45 50%, #091e2e 100%)',
-        }}
-      >
-        {/* Grid overlay */}
-        <div style={{
-          position: 'absolute', inset: 0,
-          backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)',
-          backgroundSize: '56px 56px',
-          opacity: 0.06,
-        }} />
-
-        {/* Glow blob */}
-        <div style={{
-          position: 'absolute',
-          width: 300, height: 300, borderRadius: '50%',
-          background: 'rgba(255,255,255,0.06)',
-          filter: 'blur(80px)',
-        }} />
-
-        {/* Logo + tagline */}
-        <div style={{ position: 'relative', textAlign: 'center', padding: 20 }}>
-          <img src="/doclink-logo.png" alt="DocLink" style={{ height: 144, filter: 'brightness(0) invert(1)' }} />
-          <div style={{ color: '#ffffff', opacity: 0.7, fontSize: 14, marginTop: 16 }}>
-            Powering Qatar's Business Operations
+    <div className="auth-shell">
+      <div className="auth-brand">
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <div className="sidebar-logo">DL</div>
+          <div>
+            <div className="sidebar-title">DocLink</div>
+            <div className="sidebar-sub">Global Services</div>
           </div>
+        </div>
+
+        <div>
+          <div className="cc-eyebrow" style={{ color: '#7fb0ff' }}>Business operations platform</div>
+          <h1 className="auth-headline" style={{ marginTop: 14 }}>
+            Powering <span>Qatar's business</span> operations.
+          </h1>
+          <p style={{ color: '#a9b6dc', fontSize: 15, marginTop: 16, maxWidth: 440, lineHeight: 1.6 }}>
+            Cases, clients, renewals, quotations and finance — managed from one secure command center.
+          </p>
+        </div>
+
+        <div style={{ display: 'flex', gap: 28, color: '#a9b6dc', fontSize: 12 }}>
+          <span>Bank-grade security</span><span>Role-based access</span><span>Bilingual ready</span>
+        </div>
+
+        <div className="auth-float" style={{ right: 48, top: '22%', width: 220 }} aria-hidden="true">
+          <div style={{ fontSize: 11, color: '#8391b8' }}>Renewals this month</div>
+          <div style={{ fontFamily: 'var(--font-display)', fontSize: 26, fontWeight: 700, marginTop: 4 }}>24</div>
+          <div style={{ height: 6, borderRadius: 9, background: 'rgba(255,255,255,0.08)', marginTop: 10 }}>
+            <div style={{ width: '68%', height: '100%', borderRadius: 9, background: 'linear-gradient(90deg,#3d7bff,#22d3ee)' }} />
+          </div>
+        </div>
+        <div className="auth-float" style={{ right: 120, bottom: '20%', width: 200 }} aria-hidden="true">
+          <div style={{ fontSize: 11, color: '#8391b8' }}>Invoices paid</div>
+          <div style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 700, marginTop: 4, color: '#2dd4a0' }}>+12.4%</div>
         </div>
       </div>
 
-      {/* Right panel — form */}
-      <div
-        className="login-right-panel"
-        style={{
-          flex: '1 1 50%',
-          minHeight: '100vh',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          background: '#f8fafc',
-          padding: 20,
-        }}
-      >
-        <div
-          className="login-card"
-          style={{
-            width: '100%',
-            maxWidth: 400,
-            background: '#ffffff',
-            borderRadius: 24,
-            padding: 40,
-            boxShadow: '0 20px 60px rgba(0,0,0,0.08)',
-          }}
-        >
-          <img src="/doclink-logo.png" alt="DocLink" style={{ height: 36, display: 'block', margin: '0 auto 28px' }} />
+      <div className="auth-panel">
+        <div className="auth-card">
+          <div className="hide-desktop" style={{ marginBottom: 28, alignItems: 'center', gap: 12 }}>
+            <div className="sidebar-logo">DL</div>
+            <div className="sidebar-title" style={{ color: 'var(--text-primary)' }}>DocLink</div>
+          </div>
 
-          <h2 style={{ fontSize: 22, fontWeight: 600, color: '#0d2d45', textAlign: 'center', marginBottom: 4 }}>
-            Welcome back
-          </h2>
-          <p style={{ fontSize: 13, color: '#64748b', textAlign: 'center', marginBottom: 28 }}>
+          <h2 style={{ fontSize: 28, fontWeight: 700, color: 'var(--text-primary)' }}>Welcome back</h2>
+          <p style={{ fontSize: 14, color: 'var(--text-muted)', marginTop: 6, marginBottom: 32 }}>
             Sign in to your DocLink dashboard
           </p>
 
           <form onSubmit={handleSubmit}>
-            <div style={{ marginBottom: 16 }}>
-              <label style={{ display: 'block', fontSize: 13, fontWeight: 500, color: '#374151', marginBottom: 6 }}>
-                Email address
-              </label>
+            <div style={{ marginBottom: 18 }}>
+              <label className="auth-label" htmlFor="login-email">Email address</label>
               <div style={{ position: 'relative' }}>
-                <Mail size={16} style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)', color: '#94a3b8', pointerEvents: 'none' }} />
+                <Mail size={16} className="auth-icon" />
                 <input
-                  className="login-input"
+                  id="login-email"
+                  className="input-base auth-input"
                   type="email"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   required
                   autoComplete="email"
-                  style={{
-                    width: '100%', height: 46, borderRadius: 10, border: '1px solid #e2e8f0',
-                    paddingLeft: 40, paddingRight: 14, fontSize: 14, boxSizing: 'border-box',
-                    color: '#1a1a1a', caretColor: '#1a1a1a', backgroundColor: '#ffffff',
-                  }}
+                  placeholder="you@company.qa"
                 />
               </div>
             </div>
 
-            <div style={{ marginBottom: 20 }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
-                <label style={{ fontSize: 13, fontWeight: 500, color: '#374151' }}>Password</label>
-                <span style={{ fontSize: 12, color: '#1a6b9a' }}>Forgot password?</span>
+            <div style={{ marginBottom: 18 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <label className="auth-label" htmlFor="login-password">Password</label>
+                <span style={{ fontSize: 12, color: 'var(--accent-blue-bright)', marginBottom: 8, fontWeight: 500 }}>Forgot password?</span>
               </div>
               <div style={{ position: 'relative' }}>
-                <Lock size={16} style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)', color: '#94a3b8', pointerEvents: 'none' }} />
+                <Lock size={16} className="auth-icon" />
                 <input
-                  className="login-input"
+                  id="login-password"
+                  className="input-base auth-input"
                   type={showPassword ? 'text' : 'password'}
                   value={password}
                   onChange={e => setPassword(e.target.value)}
                   required
                   autoComplete="current-password"
-                  style={{
-                    width: '100%', height: 46, borderRadius: 10, border: '1px solid #e2e8f0',
-                    paddingLeft: 40, paddingRight: 40, fontSize: 14, boxSizing: 'border-box',
-                    color: '#1a1a1a', caretColor: '#1a1a1a', backgroundColor: '#ffffff',
-                  }}
+                  placeholder="••••••••"
                 />
                 <button
                   type="button"
+                  aria-label={showPassword ? 'Hide password' : 'Show password'}
                   onClick={() => setShowPassword(v => !v)}
-                  style={{
-                    position: 'absolute', right: 10, top: '50%', transform: 'translateY(-50%)',
-                    background: 'none', border: 'none', cursor: 'pointer',
-                    color: '#94a3b8', padding: 2, lineHeight: 1, outline: 'none',
-                  }}
+                  style={{ position: 'absolute', right: 12, top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)', padding: 4, lineHeight: 0 }}
                 >
                   {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                 </button>
               </div>
             </div>
 
-            <label style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: '#374151', marginBottom: 20 }}>
-              <input
-                type="checkbox"
-                checked={remember}
-                onChange={e => setRemember(e.target.checked)}
-                style={{ width: 15, height: 15 }}
-              />
-              Remember me
+            <label style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 13, color: 'var(--text-secondary)', marginBottom: 22, cursor: 'pointer' }}>
+              <input type="checkbox" checked={remember} onChange={e => setRemember(e.target.checked)} style={{ width: 16, height: 16, accentColor: 'var(--accent-blue)' }} />
+              Keep me signed in
             </label>
 
-            {error && (
-              <div style={{ background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 8, padding: '10px 14px', fontSize: 13, color: '#dc2626', marginBottom: 16 }}>
-                {error}
-              </div>
-            )}
+            {error && <div className="auth-error">{error}</div>}
 
-            <button
-              type="submit"
-              disabled={loading}
-              onMouseEnter={e => {
-                e.currentTarget.style.background = '#154d75'
-                const icon = e.currentTarget.querySelector('.login-btn-arrow')
-                if (icon) icon.style.transform = 'translateX(3px)'
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.background = '#1a5c8a'
-                const icon = e.currentTarget.querySelector('.login-btn-arrow')
-                if (icon) icon.style.transform = 'translateX(0)'
-              }}
-              style={{
-                width: '100%', height: 46, borderRadius: 10, border: 'none',
-                background: '#1a5c8a', color: '#ffffff', fontWeight: 600, fontSize: 14,
-                cursor: loading ? 'default' : 'pointer', opacity: loading ? 0.7 : 1,
-                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-                transition: 'background 0.15s',
-              }}
-            >
+            <button type="submit" disabled={loading} className="btn-gold auth-submit">
               {loading ? 'Signing in...' : 'Sign in'}
-              {!loading && <ArrowRight size={16} className="login-btn-arrow" style={{ transition: 'transform 0.15s' }} />}
+              {!loading && <ArrowRight size={16} />}
             </button>
           </form>
+
+          <p style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 28, textAlign: 'center' }}>
+            Protected workspace · Access is managed by your administrator
+          </p>
         </div>
       </div>
     </div>

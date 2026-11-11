@@ -99,7 +99,7 @@ export default function NewReceiptModal({ invoice, receipt = null, onClose, onSu
         {/* Header */}
         <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--bg-border)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div>
-            <h2 style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: 20, fontWeight: 600, color: 'var(--text-primary)' }}>{isEditMode ? 'Edit Receipt' : 'Create Receipt'}</h2>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 600, color: 'var(--text-primary)' }}>{isEditMode ? 'Edit Receipt' : 'Create Receipt'}</h2>
             <p style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 2 }}>
               {isEditMode ? `Editing ${receipt.receipt_number}` : `Record a payment against ${invoice.invoice_number}`}
             </p>

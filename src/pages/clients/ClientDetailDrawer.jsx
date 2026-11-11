@@ -34,7 +34,7 @@ function DeleteClientModal({ client, onClose, onDeleted }) {
     <div className="modal-overlay" onClick={e => e.target === e.currentTarget && onClose()}>
       <div style={{ background: 'var(--bg-secondary)', borderRadius: 16, border: '1px solid var(--bg-border)', width: '100%', maxWidth: 460, overflow: 'hidden' }}>
         <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--bg-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <h2 style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: 20, fontWeight: 600, color: 'var(--text-primary)' }}>Delete Client</h2>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 600, color: 'var(--text-primary)' }}>Delete Client</h2>
           <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)' }}><X size={20} /></button>
         </div>
 
@@ -245,7 +245,7 @@ export default function ClientDetailDrawer({ clientId, onClose }) {
                       { label: 'Documents', value: client.documents?.length ?? 0, color: 'var(--status-active)' },
                     ].map(s => (
                       <div key={s.label} style={{ background: 'var(--bg-elevated)', borderRadius: 10, padding: 16, textAlign: 'center' }}>
-                        <div style={{ fontSize: 18, fontWeight: 700, color: s.color, fontFamily: 'Inter, system-ui, sans-serif' }}>{s.value}</div>
+                        <div style={{ fontSize: 18, fontWeight: 700, color: s.color, fontFamily: 'var(--font-display)' }}>{s.value}</div>
                         <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 4 }}>{s.label}</div>
                       </div>
                     ))}

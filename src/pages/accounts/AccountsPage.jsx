@@ -65,7 +65,7 @@ function PaymentModal({ invoice, onClose }) {
   return (
     <div className="modal-overlay" onClick={e => e.target === e.currentTarget && onClose()}>
       <div style={{ background: 'var(--bg-secondary)', borderRadius: 16, border: '1px solid var(--bg-border)', width: '100%', maxWidth: 420, padding: 24 }}>
-        <h3 style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: 20, fontWeight: 600, color: 'var(--text-primary)', marginBottom: 4 }}>Record Payment</h3>
+        <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 600, color: 'var(--text-primary)', marginBottom: 4 }}>Record Payment</h3>
         <p style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 20 }}>{invoice.invoice_number} · Outstanding: QAR {Number(invoice.amount_due).toLocaleString('en-US', { minimumFractionDigits: 2 })}</p>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
@@ -173,7 +173,7 @@ export default function AccountsPage() {
   return (
     <div>
       <div style={{ marginBottom: 28 }}>
-        <h1 style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: 28, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 4 }}>Accounts</h1>
+        <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 28, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 4 }}>Accounts</h1>
         <p style={{ fontSize: 14, color: 'var(--text-secondary)' }}>Revenue, expenses, and overall financial health</p>
       </div>
 

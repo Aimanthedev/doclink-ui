@@ -165,7 +165,7 @@ export default function TopBar({ onMenuClick }) {
   }
 
   return (
-    <header style={{
+    <header className="topbar" style={{
       height: 56,
       background: 'var(--bg-secondary)',
       borderBottom: '1px solid var(--bg-border)',

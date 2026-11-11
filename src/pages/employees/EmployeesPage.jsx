@@ -208,7 +208,7 @@ function EmployeeDrawer({ employee, onClose }) {
                   { label: 'Overdue', value: employee.overdueCases, color: 'var(--status-overdue)' },
                 ].map(s => (
                   <div key={s.label} className="card" style={{ padding: '14px 16px', textAlign: 'center' }}>
-                    <div style={{ fontSize: 22, fontWeight: 700, color: s.color, fontFamily: 'Inter, system-ui, sans-serif', marginBottom: 4 }}>{s.value}</div>
+                    <div style={{ fontSize: 22, fontWeight: 700, color: s.color, fontFamily: 'var(--font-display)', marginBottom: 4 }}>{s.value}</div>
                     <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>{s.label}</div>
                   </div>
                 ))}
@@ -305,7 +305,7 @@ export default function EmployeesPage() {
     <div>
       <div className="page-header" style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 28 }}>
         <div>
-          <h1 style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: 28, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 4 }}>Employees</h1>
+          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 28, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 4 }}>Employees</h1>
           <p style={{ fontSize: 13, color: 'var(--text-muted)' }}>Team workload, performance, and availability</p>
         </div>
         {canAddEmployees(profile?.role) && (
@@ -362,7 +362,7 @@ export default function EmployeesPage() {
                       width: 52, height: 52, borderRadius: '50%', flexShrink: 0,
                       background: `${ROLE_COLOR[e.role]}33`, color: ROLE_COLOR[e.role],
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontSize: 18, fontWeight: 700, fontFamily: 'Inter, system-ui, sans-serif',
+                      fontSize: 18, fontWeight: 700, fontFamily: 'var(--font-display)',
                     }}>
                       {getInitials(e.full_name)}
                     </div>

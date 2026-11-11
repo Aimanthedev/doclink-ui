@@ -1,3 +1,4 @@
+import CommandCenterEmpty from './components/CommandCenterEmpty'
 import { useState } from 'react'
 import { Users, BellRing, Wallet, Trophy, Calendar as CalendarIcon, ExternalLink } from 'lucide-react'
 import { useAuth } from '../../lib/AuthContext'
@@ -96,7 +97,7 @@ export default function SalesOverview() {
   const { data, error, isLoading, refetch } = useSalesOverview(period)
 
   if (isLoading) return <LoadingState />
-  if (!data) return <ErrorState error={error || new Error("No data available in this design copy")} onRetry={refetch} />
+  if (!data) return <CommandCenterEmpty onRetry={refetch} />
 
   const today = data.today || qatarToday()
   const k = data.kpis

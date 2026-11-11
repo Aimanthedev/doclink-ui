@@ -19,7 +19,7 @@ export function OverviewHeader({ fullName, message }) {
       <div style={{ fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#3b82f6', fontWeight: 600, marginBottom: 6 }}>
         {formatDateLong(qatarToday(now))}
       </div>
-      <h1 style={{ fontSize: 28, fontWeight: 700, color: 'var(--text-primary)', fontFamily: 'Inter, system-ui, sans-serif' }}>
+      <h1 style={{ fontSize: 28, fontWeight: 700, color: 'var(--text-primary)', fontFamily: 'var(--font-display)' }}>
         {greetingFor(now)}{name ? `, ${name}` : ''}
       </h1>
       <p style={{ fontSize: 13, color: 'var(--text-secondary)', marginTop: 4 }}>Here's what needs your attention today.</p>
@@ -49,7 +49,7 @@ export function KpiCard({ label, value, sub, icon: Icon, onClick, tone }) {
         </div>
       )}
       <div style={{ fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.08em', ...muted, marginBottom: 6 }}>{label}</div>
-      <div style={{ fontSize: 26, fontWeight: 700, fontFamily: 'Inter, system-ui, sans-serif', color: tone || 'var(--text-primary)', overflowWrap: 'anywhere' }}>{value}</div>
+      <div style={{ fontSize: 26, fontWeight: 700, fontFamily: 'var(--font-display)', color: tone || 'var(--text-primary)', overflowWrap: 'anywhere' }}>{value}</div>
       {sub && <div style={{ fontSize: 11, ...muted, marginTop: 4 }}>{sub}</div>}
     </div>
   )

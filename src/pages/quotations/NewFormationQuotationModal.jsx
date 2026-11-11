@@ -342,7 +342,7 @@ export default function NewFormationQuotationModal({ quotationType, onClose, ini
         {/* Modal Header */}
         <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--bg-border)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div>
-            <h2 style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: 22, fontWeight: 600, color: 'var(--text-primary)' }}>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 600, color: 'var(--text-primary)' }}>
               {isEditMode
                 ? 'Edit Quotation'
                 : `New Company Formation Quotation${quotationType === 'company_formation_expat' ? ' — Expat Ownership' : ' — Qatari Ownership'}`}

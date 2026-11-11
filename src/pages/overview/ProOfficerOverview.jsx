@@ -1,3 +1,4 @@
+import CommandCenterEmpty from './components/CommandCenterEmpty'
 import { FolderOpen, Clock, AlertTriangle, CheckCircle2 } from 'lucide-react'
 import { useAuth } from '../../lib/AuthContext'
 import { useProOverview } from '../../hooks/useOverviewData'
@@ -26,7 +27,7 @@ export default function ProOfficerOverview() {
   const { data, error, isLoading, refetch } = useProOverview()
 
   if (isLoading) return <LoadingState />
-  if (!data) return <ErrorState error={error || new Error("No data available in this design copy")} onRetry={refetch} />
+  if (!data) return <CommandCenterEmpty onRetry={refetch} />
 
   const today = data.today || qatarToday()
   const k = data.kpis

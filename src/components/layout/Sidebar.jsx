@@ -1,8 +1,19 @@
 import { NavLink } from '@/lib/router-compat'
-import { LogOut } from 'lucide-react'
+import { LogOut, Sparkles } from 'lucide-react'
 import { useAuth } from '../../lib/AuthContext'
 import { usePermissionsContext } from '../../contexts/PermissionsContext'
 import { NAV } from './navConfig'
+
+// Grouping is visual only: same items, same order, same permission filtering.
+const GROUPS = [
+  { label: 'Workspace', paths: ['/', '/cases', '/clients', '/renewals', '/documents', '/employees'] },
+  { label: 'Finance & Growth', paths: ['/quotations', '/sales', '/accounts'] },
+  { label: 'Insights', paths: ['/calendar', '/reports', '/settings'] },
+]
+
+function initials(name = '') {
+  return name.split(' ').filter(Boolean).slice(0, 2).map(p => p[0]).join('').toUpperCase() || 'U'
+}
 
 export default function Sidebar({ isOpen = false, onClose }) {
   const { profile, signOut } = useAuth()
@@ -20,53 +31,59 @@ export default function Sidebar({ isOpen = false, onClose }) {
       />
 
       <aside className={`sidebar${isOpen ? ' is-open' : ''}`}>
-        {/* Logo */}
-        <div style={{ padding: '24px 20px 18px', borderBottom: '1px solid var(--bg-border)', display: 'flex', alignItems: 'center', gap: 10 }}>
-          <div style={{
-            width: 36, height: 36, borderRadius: 10, flexShrink: 0,
-            background: 'linear-gradient(135deg, #2563eb, #6366f1)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: 14, fontWeight: 800, color: '#ffffff',
-          }}>
-            DL
-          </div>
-          <div>
-            <div style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: 20, fontWeight: 700, color: 'var(--text-primary)', letterSpacing: '0.04em' }}>
-              DocLink
-            </div>
-            <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 2 }}>Global Services</div>
+        <div className="sidebar-brand">
+          <div className="sidebar-logo">DL</div>
+          <div style={{ minWidth: 0 }}>
+            <div className="sidebar-title">DocLink</div>
+            <div className="sidebar-sub">Global Services</div>
           </div>
         </div>
 
-        {/* Navigation */}
-        <nav style={{ flex: 1, padding: '12px 10px', overflowY: 'auto' }}>
-          {visibleNav.map(({ to, icon: Icon, label }) => (
-            <NavLink
-              key={to}
-              to={to}
-              end={to === '/'}
-              onClick={onClose}
-              className={({ isActive }) => `sidebar-nav-link${isActive ? ' is-active' : ''}`}
-            >
-              <Icon size={20} />
-              {label}
-            </NavLink>
-          ))}
+        <nav style={{ flex: 1, padding: '0 12px 8px', overflowY: 'auto' }}>
+          {GROUPS.map(group => {
+            const items = visibleNav.filter(i => group.paths.includes(i.to))
+            if (!items.length) return null
+            return (
+              <div key={group.label}>
+                <div className="sidebar-section">{group.label}</div>
+                {items.map(({ to, icon: Icon, label }) => (
+                  <NavLink
+                    key={to}
+                    to={to}
+                    end={to === '/'}
+                    onClick={onClose}
+                    className={({ isActive }) => `sidebar-nav-link${isActive ? ' is-active' : ''}`}
+                  >
+                    <Icon size={18} strokeWidth={1.9} />
+                    {label}
+                  </NavLink>
+                ))}
+              </div>
+            )
+          })}
         </nav>
 
-        {/* User info */}
-        <div style={{ padding: '16px 16px', borderTop: '1px solid var(--bg-border)' }}>
-          <div style={{ fontSize: 13, color: 'var(--sidebar-text)', fontWeight: 600, marginBottom: 2 }}>
-            {profile?.full_name || 'User'}
+        <div className="sidebar-promo">
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: '#fff', fontWeight: 600, fontSize: 13 }}>
+            <Sparkles size={15} /> Qatar business hub
           </div>
-          <div style={{ fontSize: 11, color: 'var(--sidebar-text-muted)', marginBottom: 12, textTransform: 'capitalize' }}>
-            {profile?.role?.replace('_', ' ') || 'Staff'}
+          <div style={{ fontSize: 11.5, color: 'var(--sidebar-text-muted)', marginTop: 6, lineHeight: 1.5 }}>
+            Cases, renewals and finance in one secure workspace.
           </div>
-          <button
-            onClick={signOut}
-            style={{ display: 'flex', alignItems: 'center', gap: 8, background: 'none', border: 'none', cursor: 'pointer', color: 'var(--sidebar-text-muted)', fontSize: 12 }}
-          >
-            <LogOut size={13} /> Sign out
+        </div>
+
+        <div className="sidebar-user">
+          <div className="sidebar-avatar">{initials(profile?.full_name)}</div>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ fontSize: 13, color: '#fff', fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+              {profile?.full_name || 'User'}
+            </div>
+            <div style={{ fontSize: 11, color: 'var(--sidebar-text-muted)', textTransform: 'capitalize' }}>
+              {profile?.role?.replace('_', ' ') || 'Staff'}
+            </div>
+          </div>
+          <button className="sidebar-signout" onClick={signOut} title="Sign out" aria-label="Sign out">
+            <LogOut size={15} />
           </button>
         </div>
       </aside>

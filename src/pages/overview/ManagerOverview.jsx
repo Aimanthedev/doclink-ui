@@ -1,3 +1,4 @@
+import CommandCenterEmpty from './components/CommandCenterEmpty'
 import { FolderOpen, BellRing, AlertTriangle, CheckCircle2 } from 'lucide-react'
 import { useAuth } from '../../lib/AuthContext'
 import { useManagerOverview } from '../../hooks/useOverviewData'
@@ -38,7 +39,7 @@ export default function ManagerOverview() {
   const { data, error, isLoading, refetch } = useManagerOverview()
 
   if (isLoading) return <LoadingState />
-  if (!data) return <ErrorState error={error || new Error("No data available in this design copy")} onRetry={refetch} />
+  if (!data) return <CommandCenterEmpty onRetry={refetch} />
 
   const k = data.kpis
   const canCases = allowed('/cases')

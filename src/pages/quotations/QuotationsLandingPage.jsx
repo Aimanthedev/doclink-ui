@@ -27,7 +27,7 @@ export default function QuotationsLandingPage() {
   return (
     <div>
       <div className="page-header" style={{ marginBottom: 28 }}>
-        <h1 style={{ fontFamily: 'Inter, system-ui, sans-serif', fontSize: 30, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 4 }}>
+        <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 30, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 4 }}>
           Quotations
         </h1>
         <p style={{ fontSize: 13, color: 'var(--text-muted)' }}>
