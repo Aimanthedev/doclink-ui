@@ -1,0 +1,6 @@
+[
+ {"capability":"code/UI (13 pages, layout, modals)","source":"React Router + Vite SPA","outcome":"port to TanStack Start","status":"verified","next_action":"none"},
+ {"capability":"database/schema/records","source":"offline mock (no schema in archive)","outcome":"accepted: design-only copy, mock retained","status":"accepted","next_action":"none"},
+ {"capability":"auth","source":"mock Demo User","outcome":"accepted: mock retained","status":"accepted","next_action":"none"},
+ {"capability":"storage/edge functions/PDF export","source":"disabled in archive","outcome":"accepted: disabled","status":"accepted","next_action":"none"}
+]

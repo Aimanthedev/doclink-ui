@@ -1,4 +1,8 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { queryClient as appQueryClient } from "@/lib/queryClient";
+import { AuthProvider } from "@/lib/AuthContext";
+import { PermissionsProvider } from "@/contexts/PermissionsContext";
+import { ToastProvider } from "@/lib/ToastContext";
 import {
   Outlet,
   Link,
@@ -81,21 +85,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "DocLink Dashboard" },
+      { name: "description", content: "DocLink — cases, clients, quotations and renewals in one dashboard." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "DocLink Dashboard" },
+      { property: "og:description", content: "DocLink — cases, clients, quotations and renewals in one dashboard." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
-    ],
+          ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/doclink-logo.png", type: "image/png" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -106,8 +112,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{var t=localStorage.getItem('doclink-theme')||'dark';document.documentElement.classList.toggle('dark',t==='dark')}catch(e){}",
+          }}
+        />
         <HeadContent />
       </head>
       <body>
@@ -119,12 +131,16 @@ function RootShell({ children }: { children: ReactNode }) {
 }
 
 function RootComponent() {
-  const { queryClient } = Route.useRouteContext();
-
   return (
-    <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+    <QueryClientProvider client={appQueryClient}>
+      <AuthProvider>
+        <PermissionsProvider>
+          <ToastProvider>
+            {/* Required: nested routes render here. */}
+            <Outlet />
+          </ToastProvider>
+        </PermissionsProvider>
+      </AuthProvider>
     </QueryClientProvider>
   );
 }

@@ -28,3 +28,6 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- DOCLINK pages are ported JavaScript under src/pages, src/components, src/hooks; they navigate via src/lib/router-compat.jsx (TanStack-backed shim) instead of react-router-dom, so the original pages run unmodified.
+- src/lib/supabase.js is an offline mock by design (design-only copy); do not connect real backend keys unless the user asks to make it a working app.
