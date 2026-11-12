@@ -222,10 +222,10 @@ export default function DocumentsPage() {
         {isLoading ? (
           <div style={{ padding: '40px 20px', textAlign: 'center', color: 'var(--text-muted)' }}>Loading documents...</div>
         ) : documents.length === 0 ? (
-          <div style={{ padding: '60px 20px', textAlign: 'center' }}>
-            <Files size={36} style={{ color: 'var(--text-muted)', marginBottom: 12 }} />
-            <div style={{ color: 'var(--text-muted)', fontSize: 14, marginBottom: 4 }}>No documents yet</div>
-            <div style={{ color: 'var(--text-muted)', fontSize: 12 }}>Upload your first document using the button above</div>
+          <div className="empty-state">
+            <div className="empty-state-art"><Files size={34} /></div>
+            <div className="empty-state-title">No documents yet</div>
+            <div className="empty-state-text">Upload your first document using the button above</div>
           </div>
         ) : (
           <div style={{ padding: 16, display: 'flex', flexDirection: 'column', gap: 14 }}>

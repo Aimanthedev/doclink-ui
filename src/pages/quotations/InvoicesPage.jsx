@@ -149,10 +149,10 @@ export default function InvoicesPage() {
         {isLoading ? (
           <div style={{ padding: '40px 20px', textAlign: 'center', color: 'var(--text-muted)' }}>Loading invoices...</div>
         ) : filtered.length === 0 ? (
-          <div style={{ padding: '60px 20px', textAlign: 'center' }}>
-            <Receipt size={36} style={{ color: 'var(--text-muted)', marginBottom: 12 }} />
-            <div style={{ color: 'var(--text-muted)', fontSize: 14 }}>No invoices found</div>
-            <div style={{ color: 'var(--text-muted)', fontSize: 12, marginTop: 4 }}>
+          <div className="empty-state">
+            <div className="empty-state-art"><Receipt size={34} /></div>
+            <div className="empty-state-title">No invoices found</div>
+            <div className="empty-state-text">
               Invoices are created by converting approved quotations
             </div>
           </div>

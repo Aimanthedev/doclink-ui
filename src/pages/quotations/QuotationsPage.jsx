@@ -222,10 +222,10 @@ export default function QuotationsPage() {
         {isLoading ? (
           <div style={{ padding: '40px 20px', textAlign: 'center', color: 'var(--text-muted)' }}>Loading quotations...</div>
         ) : filtered.length === 0 ? (
-          <div style={{ padding: '60px 20px', textAlign: 'center' }}>
-            <FileSignature size={36} style={{ color: 'var(--text-muted)', marginBottom: 12 }} />
-            <div style={{ color: 'var(--text-muted)', fontSize: 14 }}>No quotations found</div>
-            <div style={{ color: 'var(--text-muted)', fontSize: 12, marginTop: 4 }}>Create your first quotation using the button above</div>
+          <div className="empty-state">
+            <div className="empty-state-art"><FileSignature size={34} /></div>
+            <div className="empty-state-title">No quotations found</div>
+            <div className="empty-state-text">Create your first quotation using the button above</div>
           </div>
         ) : (
           <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch', width: '100%' }}>

@@ -366,9 +366,9 @@ export default function RenewalsPage() {
       {isLoading ? (
         <div style={{ padding: '40px 20px', textAlign: 'center', color: 'var(--text-muted)' }}>Loading renewals...</div>
       ) : filtered.length === 0 ? (
-        <div style={{ padding: '60px 20px', textAlign: 'center' }}>
-          <RefreshCw size={36} style={{ color: 'var(--text-muted)', marginBottom: 12 }} />
-          <div style={{ color: 'var(--text-muted)', fontSize: 14 }}>No renewals found</div>
+        <div className="empty-state">
+          <div className="empty-state-art"><RefreshCw size={34} /></div>
+          <div className="empty-state-title">No renewals found</div>
         </div>
       ) : (
         <table className="data-table">

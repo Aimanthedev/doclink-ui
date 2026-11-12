@@ -335,10 +335,10 @@ export default function EmployeesPage() {
       {isLoading ? (
         <div style={{ padding: '40px 20px', textAlign: 'center', color: 'var(--text-muted)' }}>Loading team...</div>
       ) : employees.length === 0 ? (
-        <div className="card" style={{ padding: '60px 20px', textAlign: 'center' }}>
-          <Briefcase size={36} style={{ color: 'var(--text-muted)', marginBottom: 12 }} />
-          <div style={{ color: 'var(--text-muted)', fontSize: 14, marginBottom: 4 }}>No team members yet</div>
-          <div style={{ color: 'var(--text-muted)', fontSize: 12 }}>{canAddEmployees(profile?.role) ? 'Add your first employee using the button above' : 'No staff profiles to show yet'}</div>
+        <div className="card empty-state">
+          <div className="empty-state-art"><Briefcase size={34} /></div>
+          <div className="empty-state-title">No team members yet</div>
+          <div className="empty-state-text">{canAddEmployees(profile?.role) ? 'Add your first employee using the button above' : 'No staff profiles to show yet'}</div>
         </div>
       ) : (
         <div className="employee-grid">

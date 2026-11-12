@@ -146,10 +146,10 @@ export default function ReceiptsPage() {
         {isLoading ? (
           <div style={{ padding: '40px 20px', textAlign: 'center', color: 'var(--text-muted)' }}>Loading receipts...</div>
         ) : filtered.length === 0 ? (
-          <div style={{ padding: '60px 20px', textAlign: 'center' }}>
-            <Wallet size={36} style={{ color: 'var(--text-muted)', marginBottom: 12 }} />
-            <div style={{ color: 'var(--text-muted)', fontSize: 14 }}>No receipts found</div>
-            <div style={{ color: 'var(--text-muted)', fontSize: 12, marginTop: 4 }}>
+          <div className="empty-state">
+            <div className="empty-state-art"><Wallet size={34} /></div>
+            <div className="empty-state-title">No receipts found</div>
+            <div className="empty-state-text">
               Receipts are created from approved invoices
             </div>
           </div>

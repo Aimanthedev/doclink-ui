@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useSearchParams } from '@/lib/router-compat'
-import { Plus, Search, Pencil } from 'lucide-react'
+import { Plus, Search, Pencil, Users } from 'lucide-react'
 import { useClients, useDeletedClients, useRestoreClient } from '../../hooks/useClients'
 import { usePermissionsContext } from '../../contexts/PermissionsContext'
 import { useToast } from '../../lib/ToastContext'
@@ -235,7 +235,7 @@ export default function ClientsPage() {
       ) : isLoading ? (
         <div style={{ padding: '60px 0', textAlign: 'center', color: 'var(--text-muted)' }}>Loading clients...</div>
       ) : clients.length === 0 ? (
-        <div style={{ padding: '60px 0', textAlign: 'center', color: 'var(--text-muted)' }}>No clients found</div>
+        <div className="card empty-state"><div className="empty-state-art"><Users size={34} /></div><div className="empty-state-title">No clients yet</div><div className="empty-state-text">Your client companies and their contacts will appear here as elegant profile cards.</div></div>
       ) : (
         <div className="client-grid">
           {clients.map(c => {
