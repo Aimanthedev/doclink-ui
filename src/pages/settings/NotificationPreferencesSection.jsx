@@ -129,7 +129,7 @@ export default function NotificationPreferencesSection() {
                     </label>
                     <input
                       className="input-base"
-                      type="number"
+                      type="number" inputMode="decimal"
                       min={1}
                       max={90}
                       style={{ width: 100 }}

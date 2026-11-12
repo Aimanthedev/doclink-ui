@@ -313,7 +313,7 @@ export default function ReportsPage() {
               <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--text-primary)', marginBottom: 16 }}>Sales Pipeline</div>
               <ResponsiveContainer width="100%" height={220}>
                 <BarChart data={stageData} layout="vertical" margin={{ left: 8 }}>
-                  <XAxis type="number" hide />
+                  <XAxis type="number" inputMode="decimal" hide />
                   <YAxis type="category" dataKey="label" {...axisProps} width={130} />
                   <Tooltip {...tooltipStyle} cursor={{ fill: 'var(--bg-elevated)' }} />
                   <Bar dataKey="value" fill="#3b82f6" radius={[0, 4, 4, 0]} barSize={16} />
@@ -356,7 +356,7 @@ export default function ReportsPage() {
                         <stop offset="100%" stopColor="#6366f1" />
                       </linearGradient>
                     </defs>
-                    <XAxis type="number" {...axisProps} tickFormatter={v => `QAR ${v / 1000}k`} />
+                    <XAxis type="number" inputMode="decimal" {...axisProps} tickFormatter={v => `QAR ${v / 1000}k`} />
                     <YAxis type="category" dataKey="name" {...axisProps} width={120} />
                     <Tooltip {...tooltipStyle} cursor={{ fill: 'var(--bg-elevated)' }} formatter={v => `QAR ${Number(v).toLocaleString('en-US')}`} />
                     <Bar dataKey="value" fill="url(#catGrad)" radius={[0, 4, 4, 0]} barSize={18} />

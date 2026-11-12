@@ -128,7 +128,7 @@ export default function NewCaseModal({ onClose, prefillClientId = null }) {
               {/* Amount */}
               <div>
                 <label style={{ display: 'block', fontSize: 11, color: 'var(--text-muted)', marginBottom: 5, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Amount (QAR)</label>
-                <input className="input-base" type="number" min="0" placeholder="0.00" value={form.amount} onChange={e => set('amount', e.target.value)} />
+                <input className="input-base" type="number" inputMode="decimal" min="0" placeholder="0.00" value={form.amount} onChange={e => set('amount', e.target.value)} />
               </div>
 
               {/* Due date */}

@@ -181,12 +181,14 @@ export default function TopBar({ onMenuClick }) {
       <div style={{ display: 'flex', alignItems: 'center', gap: 14, flexShrink: 0 }}>
         <button
           onClick={onMenuClick}
-          className="hide-desktop"
+          className="topbar-menu"
+          aria-label="Open menu"
           style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-secondary)', padding: 4 }}
         >
           <Menu size={20} />
         </button>
-        <span style={{ fontSize: 15, fontWeight: 600, color: 'var(--text-primary)' }}>{pageTitle}</span>
+        <span className="topbar-brand" aria-hidden="true">DL</span>
+        <span className="topbar-title" style={{ fontSize: 15, fontWeight: 600, color: 'var(--text-primary)' }}>{pageTitle}</span>
       </div>
 
       {/* Center: search */}
@@ -283,6 +285,7 @@ export default function TopBar({ onMenuClick }) {
 
         <button
           onClick={() => window.location.reload()}
+          className="hide-mobile"
           title="Refresh"
           style={{
             width: 36, height: 36, borderRadius: '50%',

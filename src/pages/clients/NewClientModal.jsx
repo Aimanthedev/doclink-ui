@@ -77,8 +77,8 @@ export default function NewClientModal({ onClose, prefillData = {} }) {
             </div>
 
             <Field label="Email" field="email" type="email" placeholder="email@company.com" form={form} set={set} />
-            <Field label="Phone" field="phone" placeholder="+974 XXXX XXXX" form={form} set={set} />
-            <Field label="WhatsApp" field="whatsapp" placeholder="+974 XXXX XXXX" form={form} set={set} />
+            <Field label="Phone" field="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="+974 XXXX XXXX" form={form} set={set} />
+            <Field label="WhatsApp" field="whatsapp" type="tel" inputMode="tel" autoComplete="tel" placeholder="+974 XXXX XXXX" form={form} set={set} />
             <Field label="Qatar ID (QID)" field="qid_number" placeholder="QID number" form={form} set={set} />
             <Field label="CR Number" field="cr_number" placeholder="Commercial registration" form={form} set={set} />
             <Field label="Address" field="address" placeholder="Office address" span={2} form={form} set={set} />
@@ -121,7 +121,7 @@ export default function NewClientModal({ onClose, prefillData = {} }) {
                     </div>
                     <div>
                       {index === 0 && <label style={{ display: 'block', fontSize: 10, color: 'var(--text-muted)', marginBottom: 4 }}>Share %</label>}
-                      <input className="input-base" type="number" min={0} max={100} placeholder="%" value={owner.shareholding_pct} onChange={e => updateOwner(index, 'shareholding_pct', e.target.value)} />
+                      <input className="input-base" type="number" inputMode="decimal" min={0} max={100} placeholder="%" value={owner.shareholding_pct} onChange={e => updateOwner(index, 'shareholding_pct', e.target.value)} />
                     </div>
                     <button
                       type="button"

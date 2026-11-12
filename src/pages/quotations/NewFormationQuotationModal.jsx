@@ -517,7 +517,7 @@ export default function NewFormationQuotationModal({ quotationType, onClose, ini
                 <span>Discount (QAR)</span>
                 <input
                   className="input-base"
-                  type="number" min="0" step="0.01"
+                  type="number" inputMode="decimal" min="0" step="0.01"
                   style={{ width: 110, fontSize: 12, textAlign: 'right' }}
                   value={discountAmount}
                   onChange={e => setDiscountAmount(e.target.value)}
@@ -527,7 +527,7 @@ export default function NewFormationQuotationModal({ quotationType, onClose, ini
                 <span>Additional Charges (QAR)</span>
                 <input
                   className="input-base"
-                  type="number" min="0" step="0.01"
+                  type="number" inputMode="decimal" min="0" step="0.01"
                   style={{ width: 110, fontSize: 12, textAlign: 'right' }}
                   value={additionalCharges}
                   onChange={e => setAdditionalCharges(e.target.value)}

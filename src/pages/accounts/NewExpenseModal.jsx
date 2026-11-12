@@ -147,7 +147,7 @@ export default function NewExpenseModal({ onClose, expense = null }) {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
             <div>
               <label style={{ display: 'block', fontSize: 11, color: 'var(--text-muted)', marginBottom: 5, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Amount (QAR) *</label>
-              <input className="input-base" type="number" min="0" step="0.01" value={amount} onChange={e => setAmount(e.target.value)} />
+              <input className="input-base" type="number" inputMode="decimal" min="0" step="0.01" value={amount} onChange={e => setAmount(e.target.value)} />
             </div>
             <div>
               <label style={{ display: 'block', fontSize: 11, color: 'var(--text-muted)', marginBottom: 5, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Payment Method</label>

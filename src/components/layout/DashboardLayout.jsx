@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import MobileNav from './MobileNav'
+import { useMobileTables } from '../../lib/useMobileTables'
 import { ShieldAlert } from 'lucide-react'
 import Sidebar from './Sidebar'
 import TopBar from './TopBar'
@@ -21,6 +23,8 @@ function AccessDenied() {
 export default function DashboardLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const location = useLocation()
+  const mainRef = useRef(null)
+  useMobileTables(mainRef)
   const { can, isLoading } = usePermissionsContext()
 
   const currentNavItem = NAV.find(item => item.to === location.pathname)
@@ -31,10 +35,11 @@ export default function DashboardLayout({ children }) {
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <div className="dashboard-content">
         <TopBar onMenuClick={() => setSidebarOpen(open => !open)} />
-        <main className="dashboard-main">
+        <main className="dashboard-main" ref={mainRef}>
           {isDenied ? <AccessDenied /> : children}
         </main>
       </div>
+      <MobileNav onMore={() => setSidebarOpen(o => !o)} moreOpen={sidebarOpen} />
       <AnnouncementModal />
       <WhatsNewPopup />
     </div>

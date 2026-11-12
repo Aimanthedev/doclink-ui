@@ -97,11 +97,11 @@ export default function AddEmployeeModal({ onClose }) {
               </div>
               <div>
                 <label style={labelStyle}>Phone</label>
-                <input className="input-base" placeholder="+974 XXXX XXXX" value={form.phone} onChange={e => set('phone', e.target.value)} />
+                <input className="input-base" type="tel" inputMode="tel" autoComplete="tel" placeholder="+974 XXXX XXXX" value={form.phone} onChange={e => set('phone', e.target.value)} />
               </div>
               <div>
                 <label style={labelStyle}>WhatsApp</label>
-                <input className="input-base" placeholder="+974 XXXX XXXX" value={form.whatsapp} onChange={e => set('whatsapp', e.target.value)} />
+                <input className="input-base" type="tel" inputMode="tel" autoComplete="tel" placeholder="+974 XXXX XXXX" value={form.whatsapp} onChange={e => set('whatsapp', e.target.value)} />
               </div>
               <div>
                 <label style={labelStyle}>Employee Code</label>

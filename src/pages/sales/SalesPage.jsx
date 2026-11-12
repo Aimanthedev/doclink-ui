@@ -134,7 +134,7 @@ function NewLeadModal({ onClose }) {
             </div>
             <div>
               <label style={{ display: 'block', fontSize: 11, color: 'var(--text-muted)', marginBottom: 5, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Estimated Value (QAR)</label>
-              <input className="input-base" type="number" min="0" placeholder="0.00" value={form.estimated_value} onChange={e => set('estimated_value', e.target.value)} />
+              <input className="input-base" type="number" inputMode="decimal" min="0" placeholder="0.00" value={form.estimated_value} onChange={e => set('estimated_value', e.target.value)} />
             </div>
             <div>
               <label style={{ display: 'block', fontSize: 11, color: 'var(--text-muted)', marginBottom: 5, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Source</label>
@@ -320,7 +320,7 @@ function LeadDetailModal({ leadId, onClose }) {
                 </div>
                 <div>
                   <label style={{ display: 'block', fontSize: 11, color: 'var(--text-muted)', marginBottom: 5, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Estimated Value (QAR)</label>
-                  <input className="input-base" type="number" min="0" placeholder="0.00" value={form.estimated_value} onChange={e => set('estimated_value', e.target.value)} />
+                  <input className="input-base" type="number" inputMode="decimal" min="0" placeholder="0.00" value={form.estimated_value} onChange={e => set('estimated_value', e.target.value)} />
                 </div>
                 <div>
                   <label style={{ display: 'block', fontSize: 11, color: 'var(--text-muted)', marginBottom: 5, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Source</label>

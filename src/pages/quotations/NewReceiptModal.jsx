@@ -166,7 +166,7 @@ export default function NewReceiptModal({ invoice, receipt = null, onClose, onSu
                       {checked && (
                         <input
                           className="input-base"
-                          type="number"
+                          type="number" inputMode="decimal"
                           min="0"
                           step="0.01"
                           style={{ width: 130, textAlign: 'right' }}

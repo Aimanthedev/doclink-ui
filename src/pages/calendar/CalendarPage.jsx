@@ -239,7 +239,7 @@ function EventModal({ event, defaultDate, onClose }) {
           <div>
             <label style={{ display: 'block', fontSize: 11, color: 'var(--text-muted)', marginBottom: 5, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Remind Me</label>
             <div style={{ display: 'flex', gap: 10 }}>
-              <input className="input-base" type="number" min="0" placeholder="e.g. 2" value={form.remind_before_value} onChange={e => set('remind_before_value', e.target.value)} style={{ flex: 1 }} />
+              <input className="input-base" type="number" inputMode="decimal" min="0" placeholder="e.g. 2" value={form.remind_before_value} onChange={e => set('remind_before_value', e.target.value)} style={{ flex: 1 }} />
               <select className="input-base" value={form.remind_before_unit} onChange={e => set('remind_before_unit', e.target.value)} style={{ flex: 1 }}>
                 <option value="hours">Hours</option>
                 <option value="days">Days</option>
@@ -268,7 +268,7 @@ export default function CalendarPage() {
   const [searchParams, setSearchParams] = useSearchParams()
   const isSuperAdmin = profile?.role === 'super_admin'
   const [currentDate, setCurrentDate] = useState(new Date())
-  const [view, setView] = useState('month')
+  const [view, setView] = useState(() => (typeof window !== 'undefined' && window.innerWidth < 640 ? 'list' : 'month'))
   const [showNew, setShowNew] = useState(false)
   const [editingEvent, setEditingEvent] = useState(null)
   const [newEventDate, setNewEventDate] = useState(null)

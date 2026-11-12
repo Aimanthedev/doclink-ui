@@ -123,7 +123,7 @@ export default function ServiceModal({ service, onClose }) {
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 14 }}>
               <div>
                 <label style={{ display: 'block', fontSize: 11, color: 'var(--text-muted)', marginBottom: 5, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Base Price</label>
-                <input className="input-base" type="number" min="0" step="0.01" value={form.base_price} onChange={e => set('base_price', e.target.value)} />
+                <input className="input-base" type="number" inputMode="decimal" min="0" step="0.01" value={form.base_price} onChange={e => set('base_price', e.target.value)} />
               </div>
               <div>
                 <label style={{ display: 'block', fontSize: 11, color: 'var(--text-muted)', marginBottom: 5, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Currency</label>

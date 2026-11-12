@@ -137,9 +137,9 @@ function SortableServiceRow({
           )}
         </div>
         <input className="input-base" style={{ fontSize: 12 }} placeholder="Category" value={item.category} onChange={e => updateItem(idx, 'category', e.target.value)} />
-        <input className="input-base" style={{ fontSize: 12, textAlign: 'center' }} type="number" min="1" value={item.quantity} onChange={e => updateItem(idx, 'quantity', e.target.value)} />
+        <input className="input-base" style={{ fontSize: 12, textAlign: 'center' }} type="number" inputMode="decimal" min="1" value={item.quantity} onChange={e => updateItem(idx, 'quantity', e.target.value)} />
         <input className="input-base" style={{ fontSize: 12, textAlign: 'center' }} placeholder="unit" value={item.unit_type} onChange={e => updateItem(idx, 'unit_type', e.target.value)} />
-        <input className="input-base" style={{ fontSize: 12, textAlign: 'right' }} type="number" min="0" step="0.01" value={item.unit_price} onChange={e => updateItem(idx, 'unit_price', e.target.value)} />
+        <input className="input-base" style={{ fontSize: 12, textAlign: 'right' }} type="number" inputMode="decimal" min="0" step="0.01" value={item.unit_price} onChange={e => updateItem(idx, 'unit_price', e.target.value)} />
         <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-primary)', textAlign: 'right' }}>
           {calc.total.toLocaleString('en-US', { minimumFractionDigits: 2 })}
         </div>
@@ -156,8 +156,8 @@ function SortableServiceRow({
       <div style={{ display: 'grid', gridTemplateColumns: '64px 2.4fr 110px 130px 1fr 150px', gap: 8, alignItems: 'center', marginTop: 8 }}>
         <div />
         <input className="input-base" style={{ fontSize: 12 }} placeholder="Description (optional)" value={item.description} onChange={e => updateItem(idx, 'description', e.target.value)} />
-        <input className="input-base" style={{ fontSize: 12, textAlign: 'right' }} type="number" min="0" step="0.01" placeholder="Tax %" value={item.tax_rate} onChange={e => updateItem(idx, 'tax_rate', e.target.value)} />
-        <input className="input-base" style={{ fontSize: 12, textAlign: 'right' }} type="number" min="0" step="0.01" placeholder="Discount (QAR)" value={item.discount_amount} onChange={e => updateItem(idx, 'discount_amount', e.target.value)} />
+        <input className="input-base" style={{ fontSize: 12, textAlign: 'right' }} type="number" inputMode="decimal" min="0" step="0.01" placeholder="Tax %" value={item.tax_rate} onChange={e => updateItem(idx, 'tax_rate', e.target.value)} />
+        <input className="input-base" style={{ fontSize: 12, textAlign: 'right' }} type="number" inputMode="decimal" min="0" step="0.01" placeholder="Discount (QAR)" value={item.discount_amount} onChange={e => updateItem(idx, 'discount_amount', e.target.value)} />
         <input className="input-base" style={{ fontSize: 12 }} placeholder="Notes (optional)" value={item.notes} onChange={e => updateItem(idx, 'notes', e.target.value)} />
         <input className="input-base" style={{ fontSize: 12 }} placeholder="Est. delivery (optional)" value={item.estimated_delivery} onChange={e => updateItem(idx, 'estimated_delivery', e.target.value)} />
       </div>
@@ -726,7 +726,7 @@ export default function NewQuotationModal({ onClose, initialData }) {
                 <span>Additional Charges (QAR)</span>
                 <input
                   className="input-base"
-                  type="number" min="0" step="0.01"
+                  type="number" inputMode="decimal" min="0" step="0.01"
                   style={{ width: 110, fontSize: 12, textAlign: 'right' }}
                   value={additionalCharges}
                   onChange={e => setAdditionalCharges(e.target.value)}
