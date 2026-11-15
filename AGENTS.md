@@ -31,3 +31,4 @@ use the editor.
 
 - DOCLINK pages are ported JavaScript under src/pages, src/components, src/hooks; they navigate via src/lib/router-compat.jsx (TanStack-backed shim) instead of react-router-dom, so the original pages run unmodified.
 - src/lib/supabase.js is an offline mock by design (design-only copy); do not connect real backend keys unless the user asks to make it a working app.
+- Phone layout lives in the "MOBILE EXPERIENCE LAYER" of src/styles.css plus MobileNav.jsx; tables turn into cards via useMobileTables (adds data-label from headers), so pages need no per-table mobile code.
